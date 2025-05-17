@@ -41,49 +41,52 @@ const App = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className="chat-container">
-      <header className="chat-header">Banking Services Chatbot</header>
-      <main className="chat-window">
-        {answers.map((answer, index) => (
-          <div key={index} className={`message ${index % 2 === 0 ? 'bot' : 'user'}`}>
-            {answer}
-          </div>
-        ))}
-        {currentQuestion && (
-          <div className="message bot">
-            {currentQuestion.text}
-          </div>
-        )}
-      </main>
-      <form className="chat-form" onSubmit={handleSubmit}>
-        {currentQuestion?.options ? (
-          currentQuestion.options.map((option, index) => (
-            <button
-              key={index}
-              type="button"
-              className="option-btn"
-              onClick={() => handleOptionClick(option)}
-            >
-              {option}
-            </button>
-          ))
-        ) : (
-          <div className="input-container">
-            <input
-              type="text"
-              className="input-field"
-              placeholder={currentQuestion?.placeholder}
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-              required
-            />
-            <button type="submit" className="submit-btn">
-              <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
-          </div>
-        )}
-      </form>
-    </div>
+    <>
+      <div className="chat-container">
+        <header className="chat-header">Banking Services Chatbot</header>
+        <main className="chat-window">
+          {answers.map((answer, index) => (
+            <div key={index} className={`message ${index % 2 === 0 ? 'bot' : 'user'}`}>
+              {answer}
+            </div>
+          ))}
+          {currentQuestion && (
+            <div className="message bot">
+              {currentQuestion.text}
+            </div>
+          )}
+        </main>
+        <form className="chat-form" onSubmit={handleSubmit}>
+          {currentQuestion?.options ? (
+            currentQuestion.options.map((option, index) => (
+              <button
+                key={index}
+                type="button"
+                className="option-btn"
+                onClick={() => handleOptionClick(option)}
+              >
+                {option}
+              </button>
+            ))
+          ) : (
+            <div className="input-container">
+              <input
+                type="text"
+                className="input-field"
+                placeholder={currentQuestion?.placeholder}
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                required
+              />
+              <button type="submit" className="submit-btn">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          )}
+        </form>
+      </div>
+      <p className='sk'>Designed And Developed BY SHAIBAAZ KARBELKAR &reg; &copy; &trade;</p>
+    </> 
   );
 };
 export default App;
